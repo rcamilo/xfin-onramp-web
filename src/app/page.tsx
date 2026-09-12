@@ -27,7 +27,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#0b1430] text-slate-100">
+    <div className="flex min-h-screen flex-col bg-white text-ink-900">
       
       {/* Navigation Bar */}
       <Navbar
@@ -60,32 +60,32 @@ export default function Home() {
 
       {/* Auth Modal (WhatsApp Phone / OTP) */}
       {showAuthModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-          <div className="glass-panel w-full max-w-md rounded-2xl p-6 sm:p-8 shadow-fastpix-card border border-white/10 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/60 backdrop-blur-sm p-4">
+          <div className="fastpix-card w-full max-w-md p-6 sm:p-8 relative">
             
             <button
               onClick={() => setShowAuthModal(false)}
-              className="absolute right-4 top-4 text-slate-400 hover:text-white transition"
+              className="absolute right-4 top-4 text-ink-500 hover:text-ink-900 transition"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <div className="flex items-center gap-2.5 text-blue-400 mb-2">
+            <div className="flex items-center gap-2 text-brand mb-2">
               <Shield className="h-5 w-5" />
               <span className="text-xs font-bold uppercase tracking-wider">Acesso Seguro</span>
             </div>
 
-            <h3 className="text-xl font-bold text-white tracking-tight">
+            <h3 className="text-2xl font-black text-ink-900 tracking-tight">
               Entrar na Área do Cliente
             </h3>
 
-            <p className="mt-1.5 text-xs text-slate-300">
-              Digite o número do celular cadastrado para acessar seu extrato, gerenciar suas carteiras e emitir cotações.
+            <p className="mt-1.5 text-xs text-ink-500">
+              Digite o número do celular cadastrado para acessar seu extrato contábil, gerenciar carteiras e cotações.
             </p>
 
             <form onSubmit={handleLogin} className="mt-6 space-y-4">
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-slate-300">
+                <label className="text-xs font-semibold text-ink-700">
                   Celular / WhatsApp com DDD:
                 </label>
                 <input
@@ -93,21 +93,21 @@ export default function Home() {
                   value={phoneInput}
                   onChange={(e) => setPhoneInput(e.target.value)}
                   placeholder="55 11 98128-5808"
-                  className="w-full rounded-xl bg-[#08163f] px-3.5 py-3 text-sm font-mono text-white border border-white/10 outline-none focus:border-blue-500 transition"
+                  className="w-full rounded-xl bg-surface-offwhite px-3.5 py-3 text-sm font-mono text-ink-900 border border-ink-200 outline-none focus:border-brand transition shadow-sm"
                   required
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 rounded-pill bg-gradient-to-r from-blue-600 to-blue-700 py-3 text-sm font-bold text-white shadow-fastpix-glow hover:from-blue-500 hover:to-blue-600 transition active:scale-95"
+                className="w-full flex items-center justify-center gap-2 rounded-pill bg-brand py-3.5 text-sm font-bold text-white shadow-fastpix-4 hover:bg-brand-cobalt transition active:scale-95"
               >
                 Continuar
                 <ArrowRight className="h-4 w-4" />
               </button>
 
-              <div className="rounded-xl bg-blue-950/40 p-3 text-[11px] text-blue-300 border border-blue-800/30 text-center">
-                ✨ Usuário de demonstração com saldo e transações reais carregadas.
+              <div className="rounded-xl bg-accent-mint/60 p-3 text-[11px] text-accent-emerald border border-accent-green/30 text-center font-medium">
+                ✨ Demonstração: sessão Firebase Auth conectada ao projeto oficial.
               </div>
             </form>
 

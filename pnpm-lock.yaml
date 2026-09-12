@@ -14,6 +14,9 @@ importers:
       firebase:
         specifier: ^11.3.0
         version: 11.10.0
+      geist:
+        specifier: ^1.7.2
+        version: 1.7.2(next@15.5.25(@opentelemetry/api@1.9.1)(@types/node@22.20.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
       lucide-react:
         specifier: ^0.475.0
         version: 0.475.0(react@19.3.0)
@@ -1528,6 +1531,11 @@ packages:
   gcp-metadata@9.0.3:
     resolution: {integrity: sha512-2YYnIlHaKBGT2IPg3G2M57hia9Galz15zsEOvw9T3oRf0lSn6KN6VcHQLqby7x8ksYKnjXvp3rp2KJyLCN6zfQ==}
     engines: {node: '>=22'}
+
+  geist@1.7.2:
+    resolution: {integrity: sha512-Gu5lDFa3pLRyoBlBPf0QIFHVdWAnpco7fS1bJm41jyLPFoguBgiubseUN2oLXMgqZ7uxAxDoXcHMhCY/fOTTgg==}
+    peerDependencies:
+      next: '>=13.2.0'
 
   get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
@@ -4765,6 +4773,10 @@ snapshots:
       json-bigint: 1.0.0
     transitivePeerDependencies:
       - supports-color
+
+  geist@1.7.2(next@15.5.25(@opentelemetry/api@1.9.1)(@types/node@22.20.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)):
+    dependencies:
+      next: 15.5.25(@opentelemetry/api@1.9.1)(@types/node@22.20.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
 
   get-caller-file@2.0.5: {}
 
