@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { WORLD_LAND_PATH, PRECISE_HUBS } from "./worldLandPath";
-import { Zap, ShieldCheck, ArrowRight, ExternalLink } from "lucide-react";
+import { Zap, ShieldCheck } from "lucide-react";
 
 interface Hub {
   id: string;
@@ -64,7 +64,7 @@ export const GlobalFlowMap: React.FC = () => {
   const [activeHub, setActiveHub] = useState<Hub | null>(null);
 
   return (
-    <div className="w-full max-w-[620px] mb-6 rounded-2xl border border-ink-200/90 bg-white/95 p-3.5 sm:p-4 shadow-pop relative overflow-hidden backdrop-blur-sm group transition-all duration-300 hover:border-brand/40 hover:shadow-lift">
+    <div className="w-full max-w-[620px] mb-6 rounded-2xl border border-ink-200/90 bg-white/95 p-3 sm:p-4 shadow-pop relative overflow-hidden backdrop-blur-sm group transition-all duration-300 hover:border-brand/40 hover:shadow-lift">
       {/* Background Decorative Mesh Glow */}
       <div
         aria-hidden="true"
@@ -76,7 +76,7 @@ export const GlobalFlowMap: React.FC = () => {
       />
 
       {/* Header Bar */}
-      <div className="flex items-center justify-between gap-2 border-b border-ink-200/70 pb-2.5 mb-2.5">
+      <div className="flex items-center justify-between gap-2 border-b border-ink-200/70 pb-2.5 mb-2.5 px-0.5">
         <div className="flex items-center gap-2">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-green opacity-75"></span>
@@ -86,7 +86,7 @@ export const GlobalFlowMap: React.FC = () => {
             Rede Global de Liquidação XFIN
           </span>
           <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-brand/10 text-brand border border-brand/20">
-            Base Mainnet
+            Base L2
           </span>
         </div>
 
@@ -99,7 +99,7 @@ export const GlobalFlowMap: React.FC = () => {
       </div>
 
       {/* SVG Canvas with Natural Earth Real Cartography & High-Fidelity Laser Arcs */}
-      <div className="relative w-full aspect-[800/340] min-h-[160px] overflow-hidden rounded-xl bg-surface-offwhite/90 border border-ink-200/60 touch-pan-y">
+      <div className="relative w-full aspect-[800/340] min-h-[160px] overflow-hidden rounded-xl bg-surface-offwhite border border-ink-200/60 touch-pan-y">
         <svg
           viewBox="0 0 800 340"
           className="w-full h-full select-none"
@@ -362,18 +362,60 @@ export const GlobalFlowMap: React.FC = () => {
                   </g>
                 )}
 
-                {/* Secondary Hub City Name Labels */}
-                {!hub.isPrimary && (
+                {/* Secondary Hub City Name Labels - Carefully positioned to never overlap */}
+                {hub.id === "ldn" && (
                   <text
-                    x={hub.x + 6}
-                    y={hub.y + 3}
-                    fill="#1c382e"
+                    x={hub.x - 12}
+                    y={hub.y - 8}
+                    fill="#051c14"
                     fontSize="9"
                     fontWeight="700"
                     fontFamily="Plus Jakarta Sans, sans-serif"
-                    className="opacity-75 hover:opacity-100 transition-opacity select-none pointer-events-none"
+                    className="opacity-80 hover:opacity-100 transition-opacity select-none pointer-events-none"
                   >
-                    {hub.name}
+                    Londres
+                  </text>
+                )}
+
+                {hub.id === "fra" && (
+                  <text
+                    x={hub.x + 6}
+                    y={hub.y + 11}
+                    fill="#051c14"
+                    fontSize="9"
+                    fontWeight="700"
+                    fontFamily="Plus Jakarta Sans, sans-serif"
+                    className="opacity-80 hover:opacity-100 transition-opacity select-none pointer-events-none"
+                  >
+                    Frankfurt
+                  </text>
+                )}
+
+                {hub.id === "sin" && (
+                  <text
+                    x={hub.x + 6}
+                    y={hub.y + 3}
+                    fill="#051c14"
+                    fontSize="9"
+                    fontWeight="700"
+                    fontFamily="Plus Jakarta Sans, sans-serif"
+                    className="opacity-80 hover:opacity-100 transition-opacity select-none pointer-events-none"
+                  >
+                    Singapura
+                  </text>
+                )}
+
+                {hub.id === "tyo" && (
+                  <text
+                    x={hub.x + 6}
+                    y={hub.y + 3}
+                    fill="#051c14"
+                    fontSize="9"
+                    fontWeight="700"
+                    fontFamily="Plus Jakarta Sans, sans-serif"
+                    className="opacity-80 hover:opacity-100 transition-opacity select-none pointer-events-none"
+                  >
+                    Tóquio
                   </text>
                 )}
               </g>
@@ -383,7 +425,7 @@ export const GlobalFlowMap: React.FC = () => {
       </div>
 
       {/* Footer Info Ribbon - 100% Mobile Fluid and Clean */}
-      <div className="mt-2.5 flex flex-wrap items-center justify-between gap-1.5 sm:gap-2 text-[11px] text-ink-700 pt-2 border-t border-ink-200/60">
+      <div className="mt-2.5 flex flex-wrap items-center justify-between gap-1.5 sm:gap-2 text-[11px] text-ink-700 pt-2 border-t border-ink-200/60 px-0.5">
         <div className="flex items-center gap-1.5 font-medium truncate">
           <span className="w-1.5 h-1.5 rounded-full bg-accent-green shrink-0"></span>
           <span className="truncate">
