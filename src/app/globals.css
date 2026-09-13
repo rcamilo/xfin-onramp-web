@@ -1,39 +1,48 @@
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/600.css";
+@import "@fontsource/plus-jakarta-sans/700.css";
+@import "@fontsource/plus-jakarta-sans/800.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/600.css";
+@import "@fontsource/jetbrains-mono/700.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-ink-900: #0b1430;
-  --color-ink-700: #2a3552;
-  --color-ink-500: #5c6782;
-  --color-ink-200: #e2e8f0;
-  --color-brand-blue: #0063e5;
-  --color-brand-cobalt: #0b3aa8;
-  --color-accent-green: #00c076;
+  --color-ink-900: #051c14;
+  --color-ink-700: #1c382e;
+  --color-ink-500: #4b6b60;
+  --color-ink-200: #d7e6df;
+  --color-brand: #059669;
+  --color-brand-vibrant: #00D084;
+  --color-brand-dark: #022c22;
   --color-surface-base: #ffffff;
-  --color-surface-raised: #08163f;
-  --color-surface-strong: #f6f9fd;
+  --color-surface-offwhite: #f6faf8;
 }
 
 body {
   color: var(--color-ink-900);
-  background-color: #ffffff;
+  background-color: var(--color-surface-base);
+  font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11", "tnum";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography scale from FastPix Design System */
+/* Typography Scale */
 .display-xl {
-  font-size: clamp(34px, 4.5vw, 62px);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  font-size: clamp(34px, 4.4vw, 60px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
   font-weight: 800;
 }
 
 .display-lg {
   font-size: clamp(26px, 3vw, 42px);
-  line-height: 1.15;
+  line-height: 1.18;
   letter-spacing: -0.03em;
   font-weight: 700;
 }
@@ -46,7 +55,7 @@ body {
 }
 
 .body-lg {
-  font-size: clamp(16px, 1.2vw, 19px);
+  font-size: clamp(16px, 1.2vw, 18px);
   line-height: 1.6;
 }
 
@@ -56,7 +65,7 @@ body {
 }
 
 .mono-num {
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-feature-settings: "tnum" 1;
 }
 
@@ -68,41 +77,41 @@ body {
   border-radius: 9999px;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  background: rgba(0, 99, 229, 0.07);
-  border: 1px solid rgba(0, 99, 229, 0.18);
-  color: #08163f;
+  background: rgba(5, 150, 105, 0.08);
+  border: 1px solid rgba(5, 150, 105, 0.22);
+  color: #022c22;
 }
 
-/* FastPix Card Tokens & Glass Elements */
-.fastpix-card {
+/* XFIN Card & Glass Tokens */
+.xfin-card {
   background: #ffffff;
   border-radius: 24px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #d7e6df;
   box-shadow: 
-    rgba(255, 255, 255, 0.9) 0px 1px 1px 0px inset, 
-    rgba(255, 255, 255, 0.35) 0px 0px 0px 1px inset, 
-    rgba(8, 22, 63, 0.06) 0px 0px 0px 1px, 
-    rgba(8, 22, 63, 0.05) 0px 8px 18px 0px, 
-    rgba(8, 22, 63, 0.12) 0px 18px 44px 0px;
+    rgba(255, 255, 255, 0.95) 0px 1px 1px 0px inset, 
+    rgba(255, 255, 255, 0.4) 0px 0px 0px 1px inset, 
+    rgba(5, 46, 34, 0.05) 0px 0px 0px 1px, 
+    rgba(5, 46, 34, 0.04) 0px 8px 18px 0px, 
+    rgba(5, 46, 34, 0.1) 0px 18px 44px 0px;
 }
 
-.fastpix-receipt-header {
-  background: linear-gradient(135deg, #081a4a 0%, #06112e 100%);
+.xfin-receipt-header {
+  background: linear-gradient(135deg, #04251a 0%, #021610 100%);
   position: relative;
   overflow: hidden;
 }
 
-.glow-blue {
-  box-shadow: 0 8px 24px rgba(0, 99, 229, 0.28);
-}
-
 .glow-emerald {
-  box-shadow: 0 0 12px rgba(0, 192, 118, 0.45);
+  box-shadow: 0 0 14px rgba(0, 208, 132, 0.5);
 }
 
-/* Remove Arrows from Number Inputs */
+.glow-green-btn {
+  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.32);
+}
+
+/* Numeric input adjustments */
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 

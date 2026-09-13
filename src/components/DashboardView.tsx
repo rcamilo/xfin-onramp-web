@@ -87,7 +87,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
     <div className="mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8">
       
       {/* Top Header Card */}
-      <div className="fastpix-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="xfin-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-3">
             <h1 className="text-2xl font-black tracking-tight text-ink-900">
@@ -126,7 +126,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         
         {/* Balance USDC */}
-        <div className="fastpix-card p-6 border-l-4 border-l-brand">
+        <div className="xfin-card p-6 border-l-4 border-l-brand">
           <span className="text-[11px] font-bold uppercase tracking-wider text-ink-500">
             Saldo On-Chain na Base (USDC)
           </span>
@@ -139,7 +139,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         </div>
 
         {/* Balance BRL */}
-        <div className="fastpix-card p-6 border-l-4 border-l-accent-green">
+        <div className="xfin-card p-6 border-l-4 border-l-brand-dark">
           <span className="text-[11px] font-bold uppercase tracking-wider text-ink-500">
             Saldo Conciliado em Reais
           </span>
@@ -152,12 +152,12 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         </div>
 
         {/* Smart Wallet */}
-        <div className="fastpix-card p-6 border-l-4 border-l-purple-600">
+        <div className="xfin-card p-6 border-l-4 border-l-emerald-600">
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-bold uppercase tracking-wider text-ink-500">
               Smart Wallet Base
             </span>
-            <span className="rounded-full bg-brand/10 px-2 py-0.5 text-[10px] font-bold text-brand">
+            <span className="rounded-full bg-brand-light px-2 py-0.5 text-[10px] font-bold text-brand">
               PADRÃO
             </span>
           </div>
@@ -190,7 +190,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </span>
         </div>
 
-        <div className="fastpix-card overflow-hidden">
+        <div className="xfin-card overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
               <thead className="bg-surface-offwhite text-[11px] font-bold uppercase tracking-wider text-ink-500 border-b border-ink-200">
@@ -216,7 +216,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                   <td className="px-6 py-4 text-ink-900 font-extrabold">
                     {formatBRL(realTransaction.amountBRL)}
                   </td>
-                  <td className="px-6 py-4 text-accent-emerald font-extrabold">
+                  <td className="px-6 py-4 text-brand font-extrabold">
                     +{realTransaction.amountUSDC} USDC
                   </td>
                   <td className="px-6 py-4 font-sans">
@@ -230,7 +230,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                       href={getBlockExplorerURL("base", realTransaction.txHash)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 rounded-pill bg-brand px-3 py-1.5 text-xs font-bold text-white shadow-sm hover:bg-brand-cobalt transition"
+                      className="inline-flex items-center gap-1 rounded-pill bg-brand px-3 py-1.5 text-xs font-bold text-white shadow-sm hover:bg-brand-hover transition"
                     >
                       Basescan
                       <ArrowUpRight className="h-3 w-3" />

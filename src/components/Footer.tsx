@@ -13,15 +13,15 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <span className="text-xl font-black tracking-[-0.04em] text-ink-900">
-                fastpix<span className="text-brand">.vc</span>
+              <span className="text-xl font-black tracking-[-0.03em] text-ink-900">
+                xfin<span className="text-brand">.financial</span>
               </span>
             </div>
             <p className="text-ink-500 leading-relaxed text-xs max-w-xs">
-              Infraestrutura de alta performance para conversão instantânea de Pix para USDC na rede Base.
+              Infraestrutura corporativa para liquidação cambial instantânea de Pix para USDC na rede Base.
             </p>
             <span className="inline-block text-[9px] font-bold uppercase tracking-[0.16em] text-ink-500">
-              Powered by BASE · TMBS
+              Institutional On-Ramp · Base Mainnet
             </span>
           </div>
 
@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
                 Polygon PoS (USDT)
               </li>
-              <li className="text-ink-500">Monad (Em Breve)</li>
+              <li className="text-ink-500">Solana & Monad (Em Breve)</li>
             </ul>
           </div>
 
@@ -57,7 +57,7 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>Ledger de Partida Dobrada (Zero-Sum)</li>
-              <li>Proteção de CPF por Salt SHA-256</li>
+              <li>Privacidade LGPD com Salt SHA-256</li>
             </ul>
           </div>
 
@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
               <span className="font-semibold text-xs">Sistemas 100% Operacionais</span>
             </div>
             <p className="text-[11px] text-ink-500">
-              Taxa média de liquidação: <strong className="mono-num text-ink-900 font-bold">14.8s</strong>
+              Tempo médio de liquidação: <strong className="mono-num text-ink-900 font-bold">14.8s</strong>
             </p>
           </div>
 
@@ -77,9 +77,9 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-ink-500">
-          <p>© 2026 FastPix · XFIN Financial Infrastructure. Todos os direitos reservados.</p>
+          <p>© 2026 XFIN · Financial Infrastructure. Todos os direitos reservados.</p>
           <p className="font-medium text-ink-700">
-            Design tokens alinhados com o FastPix Design System.
+            Arquitetura institucional de alta precisão.
           </p>
         </div>
 

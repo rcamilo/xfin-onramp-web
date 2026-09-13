@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowDownUp, QrCode, Copy, Check, ShieldCheck, Sparkles, ExternalLink, ArrowRight } from "lucide-react";
+import { ArrowDownUp, QrCode, Copy, Check, ShieldCheck, Sparkles, ExternalLink } from "lucide-react";
 import { formatBRL, formatUSDC } from "@/lib/api";
 
-const USD_RATE = 5.178; // Taxa de conversão BRL/USDC
+const USD_RATE = 5.178; // Cotação de referência BRL/USDC
 
 interface ConverterWidgetProps {
   onSuccessOrder?: (orderData: any) => void;
@@ -50,14 +50,14 @@ export const ConverterWidget: React.FC<ConverterWidgetProps> = ({ defaultPhone =
   };
 
   return (
-    <div className="fastpix-card relative w-full max-w-md p-6 sm:p-7">
+    <div className="xfin-card relative w-full max-w-md p-6 sm:p-7">
       
       {/* Widget Header */}
       <div className="flex items-center justify-between pb-4 border-b border-ink-200">
         <div className="flex items-center gap-2">
           <span className="flex h-2 w-2 rounded-full bg-accent-green glow-emerald"></span>
           <h3 className="text-xs font-bold tracking-[0.14em] text-ink-900 uppercase">
-            Cotação Instantânea
+            Simulador On-Ramp
           </h3>
         </div>
         <span className="rounded-full bg-accent-mint px-2.5 py-0.5 text-[11px] font-bold text-accent-emerald">
@@ -71,7 +71,7 @@ export const ConverterWidget: React.FC<ConverterWidgetProps> = ({ defaultPhone =
           {/* Card: Você Paga (BRL) */}
           <div className="rounded-2xl bg-surface-offwhite p-4 border border-ink-200/80 transition focus-within:border-brand/50">
             <div className="flex items-center justify-between text-xs font-semibold text-ink-500">
-              <span>Você paga via Pix</span>
+              <span>Valor do Pix</span>
               <span className="mono-num text-ink-700">BRL (R$)</span>
             </div>
             <div className="mt-2 flex items-center justify-between">
@@ -116,7 +116,7 @@ export const ConverterWidget: React.FC<ConverterWidgetProps> = ({ defaultPhone =
           {/* Card: Você Recebe (USDC) */}
           <div className="rounded-2xl bg-surface-offwhite p-4 border border-ink-200/80">
             <div className="flex items-center justify-between text-xs font-semibold text-ink-500">
-              <span>Você recebe na carteira</span>
+              <span>Entrega On-Chain</span>
               <div className="flex items-center gap-1 bg-white p-0.5 rounded-lg border border-ink-200">
                 <button
                   type="button"
@@ -146,7 +146,7 @@ export const ConverterWidget: React.FC<ConverterWidgetProps> = ({ defaultPhone =
                 </div>
                 <span className="font-extrabold text-ink-900">USDC</span>
               </div>
-              <span className="mono-num text-3xl font-extrabold text-accent-emerald">
+              <span className="mono-num text-3xl font-extrabold text-brand">
                 {calculatedUsdc}
               </span>
             </div>
@@ -160,7 +160,7 @@ export const ConverterWidget: React.FC<ConverterWidgetProps> = ({ defaultPhone =
           {/* Celular de Notificação */}
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-ink-700">
-              WhatsApp para envio do comprovante on-chain:
+              WhatsApp para recebimento do comprovante on-chain:
             </label>
             <input
               type="text"
@@ -171,17 +171,17 @@ export const ConverterWidget: React.FC<ConverterWidgetProps> = ({ defaultPhone =
             />
           </div>
 
-          {/* CTA Button */}
+          {/* Action CTA Button */}
           <button
             type="button"
             onClick={handleGeneratePix}
             disabled={isGenerating || brlAmount < 5}
-            className="w-full mt-2 flex items-center justify-center gap-2 rounded-pill bg-brand py-4 text-sm font-bold text-white shadow-fastpix-4 hover:bg-brand-cobalt transition active:scale-[0.98] disabled:opacity-50"
+            className="w-full mt-2 flex items-center justify-center gap-2 rounded-pill bg-brand py-4 text-sm font-bold text-white glow-green-btn hover:bg-brand-hover transition active:scale-[0.98] disabled:opacity-50"
           >
             {isGenerating ? (
               <>
                 <span className="h-4 w-4 rounded-full border-2 border-white/20 border-t-white animate-spin"></span>
-                Conectando à Pods Finance...
+                Emitindo Cobrança Pix...
               </>
             ) : (
               <>
@@ -192,7 +192,7 @@ export const ConverterWidget: React.FC<ConverterWidgetProps> = ({ defaultPhone =
           </button>
 
           <p className="text-center text-[11.5px] text-ink-500 font-medium">
-            🔒 Liquidação direta na Smart Wallet Base · Sem custódia
+            🔒 Custódia Própria · Entrega direta na Smart Wallet Base
           </p>
 
         </div>
@@ -200,8 +200,8 @@ export const ConverterWidget: React.FC<ConverterWidgetProps> = ({ defaultPhone =
         /* Pix Pagamento Gerado */
         <div className="mt-5 space-y-4">
           <div className="rounded-2xl bg-accent-mint/60 p-4 border border-accent-green/30 text-center">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-accent-emerald">
-              Pix Gerado com Sucesso
+            <span className="text-[10px] font-bold uppercase tracking-widest text-accent-emerald font-mono">
+              PIX DINÂMICO GERADO COM SUCESSO
             </span>
             <div className="mt-1 text-3xl mono-num font-extrabold text-ink-900">
               {formatBRL(brlAmount)}
@@ -211,7 +211,7 @@ export const ConverterWidget: React.FC<ConverterWidgetProps> = ({ defaultPhone =
             </p>
           </div>
 
-          {/* Pix Copia e Cola */}
+          {/* Pix Copia e Cola Container */}
           <div className="space-y-2">
             <label className="text-xs font-semibold text-ink-700">
               Código Pix Copia e Cola:
@@ -226,7 +226,7 @@ export const ConverterWidget: React.FC<ConverterWidgetProps> = ({ defaultPhone =
               <button
                 type="button"
                 onClick={handleCopy}
-                className="absolute right-2.5 bottom-3 flex items-center gap-1.5 rounded-lg bg-brand px-3 py-1.5 text-xs font-bold text-white shadow-sm hover:bg-brand-cobalt transition"
+                className="absolute right-2.5 bottom-3 flex items-center gap-1.5 rounded-lg bg-brand px-3 py-1.5 text-xs font-bold text-white shadow-sm hover:bg-brand-hover transition"
               >
                 {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
                 {copied ? "Copiado!" : "Copiar"}
@@ -234,7 +234,7 @@ export const ConverterWidget: React.FC<ConverterWidgetProps> = ({ defaultPhone =
             </div>
           </div>
 
-          {/* Timer status */}
+          {/* Status Tracker */}
           <div className="rounded-xl bg-surface-offwhite p-3 text-xs text-ink-700 border border-ink-200 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-amber-500 animate-ping"></span>
@@ -248,7 +248,7 @@ export const ConverterWidget: React.FC<ConverterWidgetProps> = ({ defaultPhone =
             onClick={() => setQuoteResult(null)}
             className="w-full rounded-pill bg-ink-100 py-3 text-xs font-bold text-ink-700 hover:bg-ink-200 transition"
           >
-            Voltar / Nova Cotação
+            Voltar / Nova Simulação
           </button>
         </div>
       )}

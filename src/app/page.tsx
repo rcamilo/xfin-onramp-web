@@ -61,7 +61,7 @@ export default function Home() {
       {/* Auth Modal (WhatsApp Phone / OTP) */}
       {showAuthModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/60 backdrop-blur-sm p-4">
-          <div className="fastpix-card w-full max-w-md p-6 sm:p-8 relative">
+          <div className="xfin-card w-full max-w-md p-6 sm:p-8 relative">
             
             <button
               onClick={() => setShowAuthModal(false)}
@@ -76,11 +76,11 @@ export default function Home() {
             </div>
 
             <h3 className="text-2xl font-black text-ink-900 tracking-tight">
-              Entrar na Área do Cliente
+              Acesso ao Painel XFIN
             </h3>
 
             <p className="mt-1.5 text-xs text-ink-500">
-              Digite o número do celular cadastrado para acessar seu extrato contábil, gerenciar carteiras e cotações.
+              Informe seu celular cadastrado para consultar saldo on-chain, gerenciar chaves e emitir cotações institucionais.
             </p>
 
             <form onSubmit={handleLogin} className="mt-6 space-y-4">
@@ -100,14 +100,14 @@ export default function Home() {
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 rounded-pill bg-brand py-3.5 text-sm font-bold text-white shadow-fastpix-4 hover:bg-brand-cobalt transition active:scale-95"
+                className="w-full flex items-center justify-center gap-2 rounded-pill bg-brand py-3.5 text-sm font-bold text-white glow-green-btn hover:bg-brand-hover transition active:scale-95"
               >
-                Continuar
+                Acessar Painel
                 <ArrowRight className="h-4 w-4" />
               </button>
 
               <div className="rounded-xl bg-accent-mint/60 p-3 text-[11px] text-accent-emerald border border-accent-green/30 text-center font-medium">
-                ✨ Demonstração: sessão Firebase Auth conectada ao projeto oficial.
+                ✨ Sessão Firebase Auth conectada ao projeto oficial xfin-financial-infra.
               </div>
             </form>
 
