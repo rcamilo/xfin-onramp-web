@@ -2,6 +2,7 @@
 
 import React from "react";
 import { ConverterWidget } from "./ConverterWidget";
+import { GlobalFlowMap } from "./GlobalFlowMap";
 import { CheckCircle2, ArrowRight, ShieldCheck, Zap, ExternalLink } from "lucide-react";
 
 interface HeroProps {
@@ -29,6 +30,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDashboard }) => {
           {/* Left Column: Headlines & Value Proposition */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             
+            {/* Minimalist World Map with Blockchain Settlement Traffic */}
+            <GlobalFlowMap />
+
             {/* XFIN Eyebrow */}
             <span className="eyebrow">
               <span className="w-2 h-2 rounded-full bg-accent-green glow-emerald animate-pulse"></span>
