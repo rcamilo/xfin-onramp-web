@@ -76,7 +76,7 @@ export const GlobalFlowMap: React.FC = () => {
   const [activeHub, setActiveHub] = useState<Hub | null>(null);
 
   return (
-    <div className="w-full max-w-[620px] mb-6 rounded-2xl border border-ink-200/90 bg-white/95 p-3.5 sm:p-4 shadow-pop relative overflow-hidden backdrop-blur-sm group transition-all duration-300 hover:border-brand/40 hover:shadow-lift">
+    <div className="w-full max-w-[620px] mb-6 rounded-2xl border border-ink-200/90 bg-white/95 p-3 sm:p-4 shadow-pop relative overflow-hidden backdrop-blur-sm group transition-all duration-300 hover:border-brand/40 hover:shadow-lift">
       {/* Background Decorative Mesh Glow */}
       <div
         aria-hidden="true"
@@ -87,17 +87,17 @@ export const GlobalFlowMap: React.FC = () => {
         className="pointer-events-none absolute -bottom-12 -right-12 w-40 h-40 rounded-full blur-3xl opacity-15 bg-brand"
       />
 
-      {/* Header Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-y-1.5 gap-x-2 border-b border-ink-200/70 pb-2.5 mb-2.5">
-        <div className="flex items-center gap-2">
+      {/* Header Bar - Fully Responsive for Mobile & Desktop */}
+      <div className="flex items-center justify-between gap-2 border-b border-ink-200/70 pb-2.5 mb-2.5">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-green opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
           </span>
           <span className="text-[11px] font-bold tracking-tight text-ink-900 uppercase">
-            Rede Global de Liquidez XFIN
+            Rede Global XFIN
           </span>
-          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-brand/10 text-brand border border-brand/20">
+          <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-brand/10 text-brand border border-brand/20">
             Base L2
           </span>
         </div>
@@ -105,13 +105,13 @@ export const GlobalFlowMap: React.FC = () => {
         <div className="flex items-center gap-1.5 text-[10px] font-mono font-semibold text-ink-500">
           <span className="text-brand font-bold">⚡ SLA:</span>
           <span className="text-ink-900 font-bold">14.8s</span>
-          <span className="text-ink-300">•</span>
-          <span className="text-ink-700">6 Hubs On-Chain</span>
+          <span className="text-ink-300 hidden sm:inline">•</span>
+          <span className="text-ink-700 hidden sm:inline">6 Hubs On-Chain</span>
         </div>
       </div>
 
       {/* SVG Canvas with Clean Minimalist Continents & Flow Arcs */}
-      <div className="relative w-full aspect-[800/320] min-h-[160px] overflow-hidden rounded-xl bg-surface-offwhite border border-ink-200/60 touch-pan-y">
+      <div className="relative w-full aspect-[800/320] min-h-[150px] overflow-hidden rounded-xl bg-surface-offwhite border border-ink-200/60 touch-pan-y">
         <svg
           viewBox="0 0 800 320"
           className="w-full h-full select-none"
@@ -141,15 +141,15 @@ export const GlobalFlowMap: React.FC = () => {
 
             {/* Gradient for Primary Pix -> USDC Arc */}
             <linearGradient id="arcPixToNy" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#00D084" stopOpacity="0.9" />
-              <stop offset="50%" stopColor="#059669" stopOpacity="0.8" />
+              <stop offset="0%" stopColor="#00D084" stopOpacity="0.95" />
+              <stop offset="50%" stopColor="#059669" stopOpacity="0.85" />
               <stop offset="100%" stopColor="#34D399" stopOpacity="0.95" />
             </linearGradient>
 
             {/* Gradient for Transatlantic Arc */}
             <linearGradient id="arcTransatlantic" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#059669" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#00D084" stopOpacity="0.9" />
+              <stop offset="0%" stopColor="#059669" stopOpacity="0.75" />
+              <stop offset="100%" stopColor="#00D084" stopOpacity="0.95" />
             </linearGradient>
 
             {/* Gradient for Euro-Asian Arc */}
@@ -329,9 +329,33 @@ export const GlobalFlowMap: React.FC = () => {
                   filter={hub.isPrimary ? "url(#emerald-glow)" : undefined}
                 />
 
-                {/* Always-Visible Badges for Main Hubs */}
+                {/* Badges for Main Hubs with Clean Padding */}
                 {hub.id === "sp" && (
                   <g transform={`translate(${hub.x + 8}, ${hub.y - 4})`} className="pointer-events-none">
+                    <rect
+                      x="0"
+                      y="-12"
+                      width="88"
+                      height="20"
+                      rx="6"
+                      fill="#022c22"
+                      className="shadow-sm"
+                    />
+                    <text
+                      x="6"
+                      y="2"
+                      fill="#00D084"
+                      fontSize="9.5"
+                      fontWeight="700"
+                      fontFamily="JetBrains Mono, monospace"
+                    >
+                      SP · Pix In
+                    </text>
+                  </g>
+                )}
+
+                {hub.id === "ny" && (
+                  <g transform={`translate(${hub.x - 96}, ${hub.y - 4})`} className="pointer-events-none">
                     <rect
                       x="0"
                       y="-12"
@@ -342,31 +366,7 @@ export const GlobalFlowMap: React.FC = () => {
                       className="shadow-sm"
                     />
                     <text
-                      x="7"
-                      y="2"
-                      fill="#00D084"
-                      fontSize="9.5"
-                      fontWeight="700"
-                      fontFamily="JetBrains Mono, monospace"
-                    >
-                      SP · Pix Gateway
-                    </text>
-                  </g>
-                )}
-
-                {hub.id === "ny" && (
-                  <g transform={`translate(${hub.x - 98}, ${hub.y - 4})`} className="pointer-events-none">
-                    <rect
-                      x="0"
-                      y="-12"
-                      width="94"
-                      height="20"
-                      rx="6"
-                      fill="#022c22"
-                      className="shadow-sm"
-                    />
-                    <text
-                      x="7"
+                      x="6"
                       y="2"
                       fill="#34D399"
                       fontSize="9.5"
@@ -398,8 +398,8 @@ export const GlobalFlowMap: React.FC = () => {
         </svg>
       </div>
 
-      {/* Footer Info Ribbon - 100% Mobile Fluid */}
-      <div className="mt-2.5 flex flex-col xs:flex-row xs:items-center justify-between gap-1.5 sm:gap-2 text-[11px] text-ink-700 pt-2 border-t border-ink-200/60">
+      {/* Footer Info Ribbon - 100% Mobile Fluid and Clean */}
+      <div className="mt-2.5 flex flex-wrap items-center justify-between gap-1.5 sm:gap-2 text-[11px] text-ink-700 pt-2 border-t border-ink-200/60">
         <div className="flex items-center gap-1.5 font-medium truncate">
           <span className="w-1.5 h-1.5 rounded-full bg-accent-green shrink-0"></span>
           <span className="truncate">
@@ -409,17 +409,17 @@ export const GlobalFlowMap: React.FC = () => {
               </strong>
             ) : (
               <>
-                Fluxo On-Chain: <strong className="text-ink-900 font-semibold">Pix BRL (BACEN)</strong> → <strong className="text-brand font-semibold">Base USDC</strong>
+                Fluxo On-Chain: <strong className="text-ink-900 font-semibold">Pix BRL</strong> → <strong className="text-brand font-semibold">Base USDC</strong>
               </>
             )}
           </span>
         </div>
 
-        <div className="flex items-center gap-1.5 text-[9.5px] sm:text-[10px] font-mono text-ink-500 shrink-0">
-          <span className="bg-surface-offwhite border border-ink-200 px-1.5 py-0.5 rounded text-ink-700 font-bold">
+        <div className="flex items-center gap-1.5 text-[10px] shrink-0">
+          <span className="bg-brand/10 text-brand border border-brand/20 font-bold px-2 py-0.5 rounded-full">
             Zero Slippage
           </span>
-          <span className="bg-surface-offwhite border border-ink-200 px-1.5 py-0.5 rounded text-ink-700 font-bold">
+          <span className="bg-ink-100 text-ink-700 font-semibold px-2 py-0.5 rounded-full">
             15s Finality
           </span>
         </div>
