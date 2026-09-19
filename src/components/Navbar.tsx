@@ -21,9 +21,11 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         
         {/* XFIN Brand Logo */}
-        <div 
+        <button 
+          type="button"
           onClick={() => setCurrentTab('landing')}
-          className="flex cursor-pointer flex-col items-start gap-0.5 transition hover:opacity-95"
+          className="flex cursor-pointer flex-col items-start gap-0.5 transition hover:opacity-95 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded"
+          aria-label="Ir para a página inicial da XFIN"
         >
           <div className="flex items-center gap-2">
             <span className="text-2xl font-black tracking-[-0.03em] text-ink-900">
@@ -34,9 +36,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             </span>
           </div>
           <span className="text-[8px] font-bold uppercase tracking-[0.18em] text-ink-500">
-            Institutional Base Gateway · PoC
+            Institutional Base Gateway · Mainnet
           </span>
-        </div>
+        </button>
 
         {/* Center Nav Links */}
         <nav className="hidden md:flex items-center gap-8 text-[14px] font-medium text-ink-700">
