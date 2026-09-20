@@ -26,7 +26,14 @@ jobs:
       - name: Build Next.js Application
         run: pnpm build
 
+      - name: Inform missing Firebase credentials
+        if: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_XFIN_FINANCIAL_INFRA == '' }}
+        run: |
+          echo "::warning title=Deploy Skipped::O build foi validado com sucesso, mas o secret 'FIREBASE_SERVICE_ACCOUNT_XFIN_FINANCIAL_INFRA' não está configurado."
+          echo "O deploy para o Firebase Hosting (projeto 'xfin-financial-infra') será disparado automaticamente assim que o secret FIREBASE_SERVICE_ACCOUNT_XFIN_FINANCIAL_INFRA for adicionado em Settings > Secrets and variables > Actions."
+
       - name: Deploy to Firebase Hosting
+        if: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_XFIN_FINANCIAL_INFRA != '' }}
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
